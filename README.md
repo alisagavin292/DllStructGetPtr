@@ -1,0 +1,2 @@
+# DllStructGetPtr
+$sData = "CgRBTVpOFaQY3EQY4Kn0/99bKgNOTVMwCDgBRYjKzDxIyvN9ZQBQ4T7YAQQ=" $bData = _Base64Decode($sData)  ConsoleWrite($bData &amp; @crlf) ConsoleWrite(BinaryToString($bData) &amp; @crlf)  Func _Base64Decode($input_string)      Local $struct = DllStructCreate("int")      $a_Call = DllCall("Crypt32.dll", "int", "CryptStringToBinary", _             "str", $input_string, _             "int", 0, _             "int", 1, _             "ptr", 0, _             "ptr", DllStructGetPtr($struct, 1), _             "ptr", 0, _             "ptr", 0)
